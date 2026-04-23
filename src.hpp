@@ -76,8 +76,18 @@ class unique_ptr {
         return *ptr;
     }
 
+    // 重载 * 运算符(解引用)，返回指针指向的对象的引用 (const version)
+    const _Tp &operator*() const {
+        return *ptr;
+    }
+
     // 重载 -> 运算符(成员访问)，返回指针指向的对象的地址
     _Tp *operator->() {
+        return ptr;
+    }
+
+    // 重载 -> 运算符(成员访问)，返回指针指向的对象的地址 (const version)
+    const _Tp *operator->() const {
         return ptr;
     }
 };
