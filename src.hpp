@@ -71,6 +71,11 @@ class unique_ptr {
         return ptr;
     }
 
+    // 检查是否持有有效指针
+    explicit operator bool() const {
+        return ptr != nullptr;
+    }
+
     // 重载 * 运算符(解引用)，返回指针指向的对象的引用
     _Tp &operator*() {
         return *ptr;
